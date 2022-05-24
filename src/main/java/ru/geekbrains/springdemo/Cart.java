@@ -33,4 +33,17 @@ public class Cart {
     public void delProduct(int id) {
         productList.removeIf(product -> product.getId() == id);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+        if (productList.size() == 0) {
+            return "Ваша корзина пуста";
+        }
+        for (Product product: productList) {
+            str.append("Продукт [ Номер = " + product.getId() + " Наименование = " + product.getName() + " Цена = " +
+                    product.getPrice() + " ]" + "\n");
+        }
+        return str.toString();
+    }
 }
